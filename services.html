@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add fonts for company name -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .card {
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+            max-width: 100%;
+            min-height: 320px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+        .value-card {
+            padding: 28px 22px 22px 22px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+            background: #fff;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+        .value-card h3 {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+        .value-card p {
+            margin-bottom: 12px;
+        }
+        .value-card ul {
+            margin: 0 0 0 18px;
+            padding: 0 0 0 18px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .value-card ul li {
+            margin-bottom: 7px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .value-card {
+                min-height: 0;
+                padding: 18px 8px 18px 8px;
+                font-size: 0.98rem;
+            }
+        }
+        /* Main Navigation Styles */
+        .main-nav.ats-style {
+            background: #009fe3;
+            padding: 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .nav-links li a.active {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        /* Ensure Contact Us fits */
+        .nav-links li a[href="contact.html"] {
+            padding: 15px 15px;
+        }
+
+        /* Container adjustments */
+        .main-nav.ats-style .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        @media (max-width: 1200px) {
+            .nav-links li a {
+                padding: 15px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li a {
+                padding: 12px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Header and Navigation Styles */
+        .header-center-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #0a2342;
+            padding: 16px 0 8px 0;
+            min-height: 120px;
+        }
+        
+        /* Logo Circle Styles */
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .company-name .varadom {
+            font-family: 'Airelon', 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .technologies {
+            font-family: 'Airelon', 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 6px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .varadom:hover,
+        .company-name .technologies:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .header-center-row {
+                padding: 24px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                margin-right: 16px;
+            }
+
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-center-row {
+                padding: 20px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 65px;
+                height: 65px;
+                margin-right: 12px;
+            }
+
+            .logo-circle img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .company-name .varadom {
+                font-size: 2rem;
+            }
+            .company-name .technologies {
+                font-size: 1rem;
+            }
+        }
+        .service-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .service-modal-content {
+            background: #fff;
+            border-radius: 18px;
+            padding: 48px 40px 40px 40px;
+            max-width: 700px;
+            width: 95vw;
+            min-height: 320px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 32px rgba(0,159,227,0.18);
+            border: 3px solid #009fe3;
+            font-size: 1.13rem;
+            line-height: 1.7;
+        }
+        @media (max-width: 900px) {
+            .service-modal-content {
+                max-width: 98vw;
+                padding: 24px 8px 24px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <!-- Water Droplets -->
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <!-- Header Centered Brand Row -->
+    <div class="header-center-row">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+    <!-- Blue Navbar Section -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <!-- <a href="https://wa.me/918669663584" class="whatsapp-float-btn" target="_blank" title="Enquiry on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a> -->
+
+    <!-- Services Section -->
+    <section id="services" class="services-section" style="background:#f8f9fa; padding:40px 0;">
+        <div class="container">
+            <h1 class="section-heading-custom">Our Services</h1>
+            <div class="services-cards-grid">
+                <div class="segment-card service-card" data-service="customer-care">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Care</h3>
+                    <button class="learn-more-btn" data-service="customer-care">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        Our dedicated Customer Care team supports you at every stage of your cleaning system's lifecycle. From technical assistance to spare parts, we ensure your machines keep running smoothly—day in, day out. Your uptime is our priority.
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="installation">
+                    <i class="fas fa-tools"></i>
+                    <h3>Installation & Commissioning</h3>
+                    <button class="learn-more-btn" data-service="installation">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>Our expert engineers ensure the seamless installation and commissioning of your vehicle wash systems.</strong> From site preparation to final testing, we handle the entire process so your system is operational from day one.<br><br>
+                        <ul>
+                            <li>Professional site assessment and preparation guidance</li>
+                            <li>Complete assembly and installation of car, bike, bus, and coach wash systems</li>
+                            <li>Final commissioning and operational testing</li>
+                            <li>Hands-on training for staff on machine operations and maintenance</li>
+                            <li>Comprehensive guidance on safety protocols and optimal use</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="amc">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Annual Maintenance Contracts (AMC)</h3>
+                    <button class="learn-more-btn" data-service="amc">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>Our AMC services are designed to keep your machines running smoothly throughout the year.</strong> Regular inspections, preventive maintenance, and timely repairs ensure your system stays in peak condition, reducing the risk of downtime.<br><br>
+                        <ul>
+                            <li>Preventive maintenance schedules tailored to your equipment</li>
+                            <li>Regular system inspections and troubleshooting</li>
+                            <li>Replacement of worn-out parts</li>
+                            <li>Priority service for repairs and technical assistance</li>
+                            <li>Cost-effective solutions for long-term machine reliability</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="customization">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Customization Services</h3>
+                    <button class="learn-more-btn" data-service="customization">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>Every business is unique, and so are its washing needs.</strong> At Varadom, we offer customization services to tailor our systems to your specific requirements. Whether you need modifications for space constraints, water recycling, or unique wash cycles, we deliver solutions that work for you.<br><br>
+                        <ul>
+                            <li>Customized machine designs for specific vehicle types or wash processes</li>
+                            <li>Tailored features such as water recycling, high-powered drying, and specialized wash modes</li>
+                            <li>Bespoke layouts to fit your facility's dimensions and requirements</li>
+                            <li>Personalized consultation to develop a wash system that perfectly fits your operational needs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="tech-support">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Technical Support & On-Site Repair</h3>
+                    <button class="learn-more-btn" data-service="tech-support">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>We understand that your operations depend on the seamless performance of our systems.</strong> That’s why we offer 24/7 technical support to address any issues promptly and ensure minimal disruption to your business.<br><br>
+                        <ul>
+                            <li><b>24/7 Availability:</b> Our technical support team is available round the clock to assist you with any machine-related issues.</li>
+                            <li><b>On-Call Support:</b> Get immediate assistance from our experts via phone whenever you need help.</li>
+                            <li><b>Video Call Assistance:</b> For more complex issues, we offer video call support to guide your team through troubleshooting and repairs in real time.</li>
+                            <li><b>On-Site Repair:</b> If the issue cannot be resolved remotely, our expert engineers will visit your site to provide efficient and timely repairs.</li>
+                        </ul>
+                        With our 24/7 technical support, whether it's a minor issue or a major breakdown, we’re just a call or video away to get you back on track.
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="training">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>On-Site Training & Consultancy</h3>
+                    <button class="learn-more-btn" data-service="training">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>We believe in empowering our clients with the knowledge to efficiently operate and maintain their systems.</strong> Our on-site training programs and consultancy services ensure your team is well-equipped to handle your equipment.<br><br>
+                        <ul>
+                            <li>Comprehensive on-site training programs for operators and maintenance teams</li>
+                            <li>Hands-on workshops on machine operation, safety procedures, and troubleshooting</li>
+                            <li>Expert consultancy to optimize the performance of your wash systems</li>
+                            <li>Best practices for energy and water efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="relocation">
+                    <i class="fas fa-truck-moving"></i>
+                    <h3>Machine Relocation Services</h3>
+                    <button class="learn-more-btn" data-service="relocation">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>If your business requires relocating an existing wash system, our team is here to help.</strong> We offer full dismantling, and reinstallation services to ensure your equipment is moved safely and efficiently.<br><br>
+                        <ul>
+                            <li>Safe dismantling of equipment at the current site</li>
+                            <li>Transportation of machines to the new location</li>
+                            <li>Full reinstallation and recalibration of the system</li>
+                            <li>Post-installation testing and quality checks</li>
+                            <li>Minimization of operational downtime during the relocation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="remote-monitoring">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Remote Monitoring & Diagnostics</h3>
+                    <button class="learn-more-btn" data-service="remote-monitoring">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>Our smart technology integration allows for remote monitoring of your equipment, ensuring any issues can be detected early.</strong> Real-time diagnostics help keep your system running optimally, and any maintenance needs are flagged before they become problems.<br><br>
+                        <ul>
+                            <li>Remote monitoring systems for real-time performance tracking</li>
+                            <li>Diagnostic tools for early detection of potential issues</li>
+                            <li>Automated alerts for preventive maintenance</li>
+                            <li>Cloud-based data storage for performance reports</li>
+                            <li>Expert remote support to resolve issues quickly</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="water-recycling">
+                    <i class="fas fa-tint"></i>
+                    <h3>Water Recycling Systems Maintenance</h3>
+                    <button class="learn-more-btn" data-service="water-recycling">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>Our water recycling solutions help you save water while maintaining high performance in your wash operations.</strong> We offer specialized services to maintain and upgrade your water recycling systems, ensuring maximum efficiency.<br><br>
+                        <ul>
+                            <li>Regular maintenance of water recycling and filtration systems</li>
+                            <li>Installation of water-efficient components to minimize wastage</li>
+                            <li>Upgrading existing systems with eco-friendly solutions</li>
+                            <li>Preventive care to avoid system clogs or downtime</li>
+                            <li>Consultation on sustainable water use strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="segment-card service-card" data-service="consultancy">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Consultancy on Setting up New Wash Centers</h3>
+                    <button class="learn-more-btn" data-service="consultancy">Learn More</button>
+                    <div class="service-extra-info" style="display:none;">
+                        <strong>For businesses looking to establish new wash centers, our consultancy services provide expert guidance throughout the planning and setup process.</strong> From selecting the right equipment to operational strategies, we help you get started with confidence.<br><br>
+                        <ul>
+                            <li>Site assessment and feasibility studies</li>
+                            <li>Equipment recommendations based on your business needs</li>
+                            <li>Design and layout consultancy for optimal workflow</li>
+                            <li>Cost analysis and ROI projections</li>
+                            <li>Guidance on legal and environmental compliance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin:60px auto 0 auto; max-width:700px; text-align:center; padding:40px 32px;">
+                <h3>Let's Build Your Perfect Cleaning Solution</h3>
+                <p>Tell us about your project, and we'll recommend the right machines and services for your goals.</p>
+                <div style="margin-top:30px; display:flex; flex-wrap:wrap; gap:18px; justify-content:center;">
+                    <a href="contact.html" class="cta-btn" style="background:#28a745; color:#fff; padding:12px 28px; border-radius:30px; font-weight:600; text-decoration:none;">Contact Us</a>
+                    <a href="enquiry.html" class="cta-btn" style="background:#007bff; color:#fff; padding:12px 28px; border-radius:30px; font-weight:600; text-decoration:none;">Request a Quote</a>
+                    <a href="#" class="cta-btn" style="background:#030009; color:#fff; padding:12px 28px; border-radius:30px; font-weight:600; text-decoration:none;">Download Full Services Brochure (PDF)</a>
+                </div>
+            </div>
+            <div style="margin-top:40px; text-align:center; color:#555;">
+                <strong>Key Features of Our Service Approach</strong><br>
+                24/7 Customer Support &nbsp;|&nbsp; Nationwide Coverage &nbsp;|&nbsp; Experienced Technicians &nbsp;|&nbsp; Customer Satisfaction
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+   <footer class="main-footer">
+    <div class="footer-container four-cols single-row-footer">
+        <div class="footer-col logo-col">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="footer-logo" style="width:120px; margin-bottom:18px;">
+        </div>
+        <div class="footer-col">
+            <h3>OUR COMPANY</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>PRODUCTS</h3>
+            <ul>
+                <li>Automatic Vehicle Wash System</li>
+                <li>Cleaning Automation for Railway</li>
+                <li>Component Cleaning System</li>
+                <li>Industrial Requirements</li>
+                <li>High Pressure Wash System</li>
+                <li>Hospitality Cleaning System</li>
+                <li>Add-Ons</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>GET IN TOUCH</h3>
+            <p>Varadom Technologies Pvt Ltd<br>Gat No 1403 Late Kashinath industrial Estate,<br>Sonawane Wasti road, Chikali, Pune-411062</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@varadom.com">info@varadom.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+918669663583">+91 8669663583 / 86</a></p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/1BizA1HPNV/" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/varadomtechnologies/" class="text-white"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/varadom_technologies_pvt_ltd?igsh=bTE5cTM5MmxyejR2" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Varadom_Technologies_Pvt_Ltd" class="text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="#" class="footer-brochure-btn">Download Brochure</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Varadom Technologies Pvt Ltd. All rights reserved.</p>
+    </div>
+</footer>
+    <!-- Add modal HTML at the end of body -->
+    <div id="service-modal" class="service-modal" style="display:none;">
+        <div class="service-modal-content">
+            <span class="service-modal-close">&times;</span>
+            <div id="service-modal-heading" style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"></div>
+            <div id="service-modal-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    });
+}
+</script>
+</body>
+</html> 

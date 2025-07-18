@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .products-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: #009fe3;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .product-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #009fe3;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-title {
+            color: #009fe3;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: #444;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #009fe3;
+        }
+
+        .view-details-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #009fe3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .view-details-btn:hover {
+            background-color: #0082ba;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #fff;
+            color: #009fe3;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 2px solid #009fe3;
+            margin-bottom: 30px;
+        }
+
+        .back-btn:hover {
+            background-color: #009fe3;
+            color: #fff;
+        }
+
+        /* Header and Navigation Styles */
+        .header-center-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #0a2342;
+            padding: 16px 0 8px 0;
+            min-height: 120px;
+        }
+        
+        /* Logo Circle Styles */
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .company-name .varadom {
+            font-family: 'Airelon', 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .technologies {
+            font-family: 'Airelon', 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 6px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .varadom:hover,
+        .company-name .technologies:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .product-cards-grid {
+                grid-template-columns: 1fr;
+                margin: 20px 15px;
+            }
+            
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+            }
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo-circle {
+                width: 65px;
+                height: 65px;
+            }
+            .logo-circle img {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="header-center-row">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <a href="products.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Categories
+            </a>
+            
+            <div class="section-title">
+                <h2 id="categoryTitle">Category Products</h2>
+                <p id="categoryDescription">Explore our range of products in this category.</p>
+            </div>
+
+            <div class="product-cards-grid" id="productCardsGrid">
+                <!-- Product cards will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ABOUT US</h3>
+                    <p>Varadom Technologies is a leading provider of innovative solutions for the automotive and industrial sectors. With a commitment to excellence and customer satisfaction, we offer cutting-edge products and services that drive efficiency and safety.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>NAVIGATION</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Manufacturing Capabilities</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>NAVIGATION</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Varadom Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="categories-data.js"></script>
+    <script src="product-data.js"></script>
+    <script>
+        // Get category from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryKey = urlParams.get('category');
+
+        // Populate products for the category
+        function populateProducts() {
+            const category = categoryData[categoryKey];
+            if (!category) {
+                window.location.href = 'products.html';
+                return;
+            }
+
+            // Set category title and description
+            document.getElementById('categoryTitle').textContent = category.title;
+            document.getElementById('categoryDescription').textContent = category.description;
+
+            // Populate product cards
+            const productCardsGrid = document.getElementById('productCardsGrid');
+            category.products.forEach(productName => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                const productInfo = productData[productName];
+                const features = extractFeatures(productInfo.content);
+                const imageUrl = productImageUrls[productName] || defaultImageUrl;
+                
+                productCard.innerHTML = `
+                    <img src="${imageUrl}" 
+                         alt="${productName}" 
+                         class="product-image">
+                    <div class="product-content">
+                        <h3 class="product-title">${productName}</h3>
+                        <ul class="features-list">
+                            ${features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <a href="product-details.html?product=${encodeURIComponent(productName)}" 
+                           class="view-details-btn">View Details</a>
+                    </div>
+                `;
+                productCardsGrid.appendChild(productCard);
+            });
+        }
+
+        // Helper function to extract key features from product content
+        function extractFeatures(content) {
+            const features = [];
+            const lines = content.split('\n');
+            for (let line of lines) {
+                if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+                    features.push(line.trim().substring(1).trim());
+                }
+            }
+            return features.slice(0, 3); // Return top 3 features
+        }
+
+        // Unsplash image mapping for products
+        const productImageUrls = {
+            "Automatic Bike Wash": "Product Main Card Imges/Automatic Bike Wash.jpeg",
+            "Automatic Car Wash": "Product Main Card Imges/Automatic Car Wash.jpeg",
+            "Automatic Bus Wash": "Product Main Card Imges/Autmoatic Bus Wash.jpeg",
+            "Automatic Truck Wash": "Product Main Card Imges/Automatic Truck Wash.jpeg",
+            "Automatic Coach Wash System": "Product Main Card Imges/Automatic Train Wash.jpeg",
+            "Bogie Wash System": "Product Main Card Imges/Automatic Train Wash.jpeg",
+            "Leakage Test System": "Product Main Card Imges/Automatic Train Wash.jpeg",
+            "Coil Spring Cleaning System": "Product Main Card Imges/Component Cleaning.jpeg",
+            "Roller Bearing Cleaning System": "Product Main Card Imges/Component Cleaning.jpeg",
+            "High Pressure Washer": "Product Main Card Imges/High Pressure Wash.png",
+            "Under Body Wash System": "Product Main Card Imges/High Pressure Wash.png",
+            "Hospitality Cleaning System": "Product Main Card Imges/Hospitality Cleaning .png",
+            "Add-Ons": "Product Main Card Imges/ADD Ones.jpeg"
+        };
+        const defaultImageUrl = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80";
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', populateProducts);
+    </script>
+</body>
+</html> 

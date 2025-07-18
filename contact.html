@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add fonts for company name -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Header and Navigation Styles */
+        .header-center-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #0a2342;
+            padding: 16px 0 8px 0;
+            min-height: 120px;
+        }
+        
+        /* Logo Circle Styles */
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .company-name .varadom {
+            font-family: 'Airelon', 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .technologies {
+            font-family: 'Airelon', 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 6px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .varadom:hover,
+        .company-name .technologies:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .header-center-row {
+                padding: 24px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                margin-right: 16px;
+            }
+
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-center-row {
+                padding: 20px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 65px;
+                height: 65px;
+                margin-right: 12px;
+            }
+
+            .logo-circle img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .company-name .varadom {
+                font-size: 2rem;
+            }
+            .company-name .technologies {
+                font-size: 1rem;
+            }
+        }
+
+        /* Main Navigation Styles */
+        .main-nav.ats-style {
+            background: #009fe3;
+            padding: 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .nav-links li a.active {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        @media (max-width: 1200px) {
+            .nav-links li a {
+                padding: 15px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li a {
+                padding: 12px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Container adjustments */
+        .main-nav.ats-style .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-section {
+            padding: 60px 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        .contact-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #333;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #009fe3;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .contact-card a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #0056b3;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border: 2px solid #009fe3;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            margin: 20px 0;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .submit-btn {
+            background: #007bff;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+
+        .map-section {
+            margin-top: 40px;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .directions-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .directions-link:hover {
+            text-decoration: underline;
+        }
+
+        .faq-section {
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: #f8f9fa;
+            border: 2px solid #009fe3;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        .cta-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 0 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button.primary {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .cta-button.secondary {
+            background: #fff;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-button {
+                margin: 0;
+            }
+        }
+
+        /* Page Headings */
+        .page-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #0a2342;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #009fe3;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            letter-spacing: 1.5px;
+        }
+
+        .section-heading-custom {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #0a2342;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <!-- Water Droplets -->
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <!-- Header Centered Brand Row -->
+    <div class="header-center-row">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+    <!-- Blue Navbar Section -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <!-- <a href="https://wa.me/918669663584" class="whatsapp-float-btn" target="_blank" title="Enquiry on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a> -->
+   
+    <section class="contact-section">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="contact-hero" style="background: linear-gradient(90deg, #009fe3 0%, #0a2342 100%); border-radius: 18px; padding: 48px 24px 32px 24px; margin-bottom: 40px; text-align: center; color: #fff; box-shadow: 0 4px 32px rgba(0,159,227,0.10);">
+                <img src="Logo.jpeg" alt="Varadom Technologies Logo" style="width: 80px; margin-bottom: 18px; background: #fff; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,159,227,0.10);">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 18px; letter-spacing: 1px;">Get in Touch With Varadom Technologies</h2>
+                <p style="font-size: 1.3rem; color: #e0f4ff;">Your Partner in Automatic Smart Cleaning Solutions </p>
+            </div>
+
+            <!-- Main Two-Column Section -->
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 48px;">
+                <!-- Left Column: Info Panel -->
+                <div style="flex: 1 1 340px; min-width: 320px; max-width: 480px; background: linear-gradient(135deg, #0a7dc2 0%, #0066a2 100%); border-radius: 28px; box-shadow: 0 8px 40px rgba(0,159,227,0.13); padding: 44px 36px 36px 36px; color: #b6eefe; display: flex; flex-direction: column; gap: 28px; align-items: flex-start;">
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: #7fe3ff; margin-bottom: 18px;">Get in Touch</h2>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-bottom: 10px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-phone"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Phone</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;"><a href="tel:+918669663586" style="color:#7fe3ff; font-weight:600; text-decoration:none;">+91 866 966 3586</a> / <a href="tel:+918669663583" style="color:#7fe3ff; font-weight:600; text-decoration:none;">+91 866 966 3583</a></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-bottom: 10px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-envelope"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Email</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;"><a href="mailto:info@varadom.com" style="color:#7fe3ff; font-weight:600; text-decoration:none;">info@varadom.com</a>, <a href="mailto:sales@varadom.com" style="color:#7fe3ff; font-weight:600; text-decoration:none;">sales@varadom.com</a></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-bottom: 10px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-clock"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Business Hours</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;">Mon-Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 4:00 PM<br>Sun: Closed</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-bottom: 10px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-headset"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Emergency Support</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;">For urgent technical support and service requests</div>
+                        </div>
+                    </div>
+                    <div style="width: 100%; background: rgba(0,0,0,0.13); border-radius: 20px; padding: 22px 18px 18px 18px; margin-top: 8px; display: flex; flex-direction: column; align-items: center;">
+                        <a href="tel:+918669663584" style="display: flex; align-items: center; justify-content: center; background: #7fe3ff; color: #003a5c; font-weight: 700; font-size: 1.1rem; border-radius: 30px; padding: 12px 32px; text-decoration: none; box-shadow: 0 2px 8px #7fe3ff33;"><i class="fas fa-phone-alt" style="margin-right: 10px;"></i>Call Now: +91 866 966 3584</a>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-top: 18px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-map-marker-alt"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Registered Office</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;">I-106, Dwarka Vishwa Sector no 7, plot no 88A, PCNTDA Indrayani nagar, Bhosari, Pune-411026</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 18px; margin-top: 8px;">
+                        <span style="color: #7fe3ff; font-size: 2rem; min-width: 44px; text-align: center;"><i class="fas fa-map-marker-alt"></i></span>
+                        <div>
+                            <div style="font-weight: 700; font-size: 1.12rem; color: #b6eefe;">Corporate Office</div>
+                            <div style="font-size: 1rem; color: #d2f6ff;">Gat no.1403, Sonawane wasti road, Chikhali, Pune, Maharashtra-411062</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Contact Form -->
+                <div style="flex: 1 1 340px; min-width: 320px; max-width: 540px; background: #fff; border-radius: 18px; box-shadow: 0 2px 16px rgba(0,159,227,0.08); padding: 36px 28px;">
+                    <h2 class="section-heading-custom" style="font-size:2rem; color:#0a2342; margin-bottom: 18px;">Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Full Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Company Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number *" required>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Service Interest </option>
+                                <option>Automatic Car Wash System</option>
+                                <option>Automatic Bike Wash System</option>
+                                <option>Automatic Truck & Bus Wash System</option>
+                                <option>Automatic Railway Wash System</option>
+                                <option>Automatic Component Wash System</option>
+                                <option>High Pressure Washers</option>
+                                <option>Automatic Washroom Cleaning Systems</option>
+                                <option>Accessories</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Project Location">
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Budget Range</option>
+                                <option>Under ₹5 Lakhs</option>
+                                <option>₹5-10 Lakhs</option>
+                                <option>₹10-25 Lakhs</option>
+                                <option>₹25-50 Lakhs</option>
+                                <option>Above ₹50 Lakhs</option>
+                                <option>Not Sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Message "></textarea>
+                        </div>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" required>
+                                I agree to the Terms & Conditions and Privacy Policy
+                            </label>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section" style="margin-bottom: 48px;">
+                <h2 class="section-heading-custom">Our Location</h2>
+                <div class="map-container" style="border-radius: 18px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,159,227,0.08); height: 250px;">
+                    <iframe src="https://www.google.com/maps?q=Gat+No.-1403,+Kashinath+Industrial+Estate,+Sonawane+Wasti+Road,+MIDC,+Chikhali,+Pune+–+411062,+Maharashtra,+India&output=embed" allowfullscreen="" loading="lazy" style="width:100%; height:100%; border:0;"></iframe>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Gat+No.-1403,+Kashinath+Industrial+Estate,+Sonawane+Wasti+Road,+MIDC,+Chikhali,+Pune+–+411062,+Maharashtra,+India" target="_blank" class="directions-link">Get Directions</a>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 class="section-heading-custom">Frequently Asked Questions</h2>
+                <div class="contact-card" style="border-radius: 18px; box-shadow: 0 2px 16px rgba(0,159,227,0.08);">
+                    <div class="faq-item">
+                        <h4>What are your business hours?</h4>
+                        <p>Our business hours are Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 9:00 AM to 4:00 PM. We are closed on Sundays.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How quickly do you respond to inquiries?</h4>
+                        <p>We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you provide installation services?</h4>
+                        <p>Yes, we provide complete installation services for all our washing systems, including site preparation, installation, and commissioning.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What warranty do you offer?</h4>
+                        <p>We offer comprehensive warranty coverage on all our products. Specific warranty terms depend on the product and can be discussed during consultation.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can you customize solutions for specific needs?</h4>
+                        <p>Absolutely! We specialize in customizing washing solutions to meet your specific requirements and site constraints.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Do you provide after-sales support?</h4>
+                        <p>Yes, we provide comprehensive after-sales support including maintenance, spare parts, and technical assistance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2 class="section-heading-custom">Ready to Get Started?</h2>
+                <p>Contact us today to discuss your washing system requirements and get a customized solution</p>
+                <div class="cta-buttons">
+                    <a href="tel:+918669663586" class="cta-button primary">Call Now</a>
+                    <a href="enquiry.html" class="cta-button secondary">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+   <footer class="main-footer">
+    <div class="footer-container four-cols single-row-footer">
+        <div class="footer-col logo-col">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="footer-logo" style="width:120px; margin-bottom:18px;">
+        </div>
+        <div class="footer-col">
+            <h3>OUR COMPANY</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>PRODUCTS</h3>
+            <ul>
+                <li>Automatic Vehicle Wash System</li>
+                <li>Cleaning Automation for Railway</li>
+                <li>Component Cleaning System</li>
+                <li>Industrial Requirements</li>
+                <li>High Pressure Wash System</li>
+                <li>Hospitality Cleaning System</li>
+                <li>Add-Ons</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>GET IN TOUCH</h3>
+            <p>Varadom Technologies Pvt Ltd<br>Gat No 1403 Late Kashinath industrial Estate,<br>Sonawane Wasti road, Chikali, Pune-411062</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@varadom.com">info@varadom.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+918669663583">+91 8669663583 / 86</a></p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/1BizA1HPNV/" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/varadomtechnologies/" class="text-white"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/varadom_technologies_pvt_ltd?igsh=bTE5cTM5MmxyejR2" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Varadom_Technologies_Pvt_Ltd" class="text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="#" class="footer-brochure-btn">Download Brochure</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Varadom Technologies Pvt Ltd. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+    </script>
+    <script>
+// WhatsApp Contact Form Submission
+window.addEventListener('DOMContentLoaded', function() {
+    var contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect form data
+            var formData = new FormData(contactForm);
+            var message = 'New Contact Enquiry:%0A';
+            for (var [key, value] of formData.entries()) {
+                if (value) {
+                    var label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    message += label + ': ' + value + '%0A';
+                }
+            }
+            // WhatsApp number (with country code, no +)
+            var phone = '919322090665';
+            var waUrl = 'https://wa.me/' + phone + '?text=' + message;
+            window.open(waUrl, '_blank');
+        });
+    }
+});
+</script>
+<script>
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    });
+}
+</script>
+</body>
+</html> 

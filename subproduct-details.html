@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub-Product Details - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .subproduct-details-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .subproduct-container {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .subproduct-header {
+            background: #009fe3;
+            color: #fff;
+            padding: 30px;
+            position: relative;
+        }
+        .subproduct-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .subproduct-content {
+            padding: 40px;
+        }
+        .subproduct-description {
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #fff;
+            color: #009fe3;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: 2px solid #009fe3;
+            margin-bottom: 30px;
+        }
+        .back-btn:hover {
+            background-color: #009fe3;
+            color: #fff;
+        }
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <!-- Header -->
+    <div class="header-center-row">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+    <!-- Sub-Product Details Section -->
+    <section class="subproduct-details-section">
+        <div class="container">
+            <button onclick="goBack()" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <div class="subproduct-container">
+                <div class="subproduct-header">
+                    <h1 class="subproduct-title" id="subproductTitle"></h1>
+                </div>
+                <div class="subproduct-content">
+                    <div class="subproduct-description" id="subproductDescription"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- ... existing footer content ... -->
+    </footer>
+    <!-- Scripts -->
+    <script src="product-data.js"></script>
+    <script>
+        // Get product and subproduct from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+        const subproductName = urlParams.get('subproduct');
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Extract sub-product details from product content
+        function extractSubProductDetail(content, subproductName) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+            const h3Elements = tempDiv.querySelectorAll('h3');
+            for (let i = 0; i < h3Elements.length; i++) {
+                const h3 = h3Elements[i];
+                const title = h3.textContent.trim().replace(/^\d+\)\s+/, '').replace(/^[a-z]\)\s+/, '');
+                if (title === subproductName) {
+                    // Collect description from next elements until next h3
+                    let description = '';
+                    let nextElement = h3.nextElementSibling;
+                    while (nextElement && nextElement.tagName !== 'H3') {
+                        if (nextElement.tagName === 'P') {
+                            description += nextElement.textContent.trim() + ' ';
+                        }
+                        nextElement = nextElement.nextElementSibling;
+                    }
+                    return description.trim();
+                }
+            }
+            return null;
+        }
+
+        function populateSubProductDetails() {
+            if (!productName || !subproductName || !productData[productName]) {
+                document.getElementById('subproductTitle').textContent = 'Sub-Product Not Found';
+                document.getElementById('subproductDescription').textContent = '';
+                return;
+            }
+            document.getElementById('subproductTitle').textContent = subproductName;
+            const content = productData[productName].content;
+            const description = extractSubProductDetail(content, subproductName);
+            document.getElementById('subproductDescription').textContent = description || 'No details available for this sub-product.';
+        }
+
+        document.addEventListener('DOMContentLoaded', populateSubProductDetails);
+    </script>
+</body>
+</html> 

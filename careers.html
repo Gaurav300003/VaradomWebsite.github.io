@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add fonts for company name -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Header and Navigation Styles */
+        .header-center-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #0a2342;
+            padding: 16px 0 8px 0;
+            min-height: 120px;
+        }
+        
+        /* Logo Circle Styles */
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .company-name .varadom {
+            font-family: 'Airelon', 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .technologies {
+            font-family: 'Airelon', 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 6px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .varadom:hover,
+        .company-name .technologies:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .header-center-row {
+                padding: 24px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                margin-right: 16px;
+            }
+
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-center-row {
+                padding: 20px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 65px;
+                height: 65px;
+                margin-right: 12px;
+            }
+
+            .logo-circle img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .company-name .varadom {
+                font-size: 2rem;
+            }
+            .company-name .technologies {
+                font-size: 1rem;
+            }
+        }
+
+        /* Main Navigation Styles */
+        .main-nav.ats-style {
+            background: #009fe3;
+            padding: 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .nav-links li a.active {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        @media (max-width: 1200px) {
+            .nav-links li a {
+                padding: 15px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links li a {
+                padding: 12px 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* Container adjustments */
+        .main-nav.ats-style .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .careers-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .careers-section {
+            padding: 80px 0;
+        }
+
+        .job-filters {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-button {
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background: none;
+            color: #007bff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-button:hover,
+        .filter-button.active {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .job-listings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 32px;
+            margin-top: 24px;
+            margin-left: -32px;
+        }
+        .job-listings > .job-card {
+            width: 340px;
+            min-width: 240px;
+            height: 260px;
+            margin-bottom: 0;
+        }
+        .job-card .job-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .job-title h3 {
+            font-size: 1.08rem !important;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #0a2342;
+        }
+        .job-title div {
+            color: #009fe3;
+            font-weight: 600;
+            font-size: 0.98rem !important;
+        }
+        .job-description {
+            font-size: 0.97rem !important;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .job-card .apply-button, .job-card .call-button {
+            width: 100%;
+            max-width: 120px;
+            margin: 0 4px;
+            padding: 10px 0;
+            font-size: 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .job-card .call-button {
+            background: #00c853 !important;
+            color: #fff !important;
+        }
+        .job-card .apply-button {
+            background: #007bff;
+            color: #fff;
+        }
+        .job-card .apply-button:hover {
+            background: #0056b3;
+        }
+        .job-card .call-button:hover {
+            background: #009e3c !important;
+        }
+        .job-card .job-buttons {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+        }
+        /* Remove grid centering for last row */
+        .job-listings > .job-card:nth-child(5) {
+            grid-column-start: auto;
+        }
+        @media (max-width: 1200px) {
+            .job-listings {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .job-listings > .job-card:nth-child(5) {
+                grid-column-start: auto;
+            }
+        }
+        @media (max-width: 700px) {
+            .job-listings {
+                grid-template-columns: 1fr;
+            }
+            .job-listings > .job-card:nth-child(5) {
+                grid-column-start: auto;
+            }
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .job-location {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .job-type {
+            background: #e9ecef;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .job-requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-requirements h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            color: #666;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-requirements li:before {
+            content: ".";
+            color: #007bff;
+            position: absolute;
+            left: 0;
+        }
+
+        .apply-button {
+            background: #007bff;
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-button:hover {
+            background: #0056b3;
+        }
+
+        .benefits-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .careers-benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+        /* Center last two benefit cards on large screens */
+        @media (min-width: 900px) {
+            .careers-benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: minmax(200px, auto);
+            }
+            .careers-benefits-grid .card:nth-last-child(2) {
+                grid-column: 1 / 2;
+                justify-self: end;
+            }
+            .careers-benefits-grid .card:last-child {
+                grid-column: 2 / 3;
+                justify-self: start;
+            }
+        }
+        @media (max-width: 900px) {
+            .careers-benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .careers-benefits-grid .card {
+                max-width: 100vw;
+            }
+        }
+        /* Ensure .card containers have consistent padding and spacing */
+        .card {
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            padding: 40px 40px 32px 40px;
+            margin-bottom: 24px;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+            max-width: 2400px;
+            margin-left: auto;
+            margin-right: auto;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            box-sizing: border-box;
+            min-width: 0;
+            width: 100%;
+            min-height: 350px;
+            height: auto;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+        .card h1, .card h3 {
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+        .card ul {
+            margin: 0 0 0 18px;
+            padding: 0 0 0 18px;
+            font-size: 1.04rem;
+            line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .card ul li {
+            margin-bottom: 8px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+        .card p {
+            font-size: 1.04rem;
+            line-height: 1.5;
+        }
+        @media (max-width: 900px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page Headings */
+        .page-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #0a2342;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #009fe3;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Update card headings */
+        .card h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #0a2342;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #009fe3;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Update job card headings */
+        .job-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #0a2342;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .job-requirements h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #009fe3;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .careers-benefits-grid .card {
+            max-width: 340px;
+            min-width: 240px;
+            min-height: 260px;
+            height: auto;
+            padding: 28px 18px 24px 18px;
+            border: 2.5px solid #00aaff;
+            border-radius: 18px;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .card ul, .card li {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .modal-popup {
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 36px 32px 32px 32px;
+            border-radius: 24px;
+            max-width: 540px;
+            width: 90vw;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            border: 4px solid #00aaff;
+            position: relative;
+            text-align: left;
+            font-size: 1.25rem;
+        }
+        .close-modal {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            font-size: 2.2rem;
+            color: #00aaff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+        .close-modal:hover {
+            color: #0077b6;
+        }
+
+        /* Add button style for blue pill-shaped look */
+        .learn-more-btn {
+            background: #00aaff;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 12px 32px;
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-top: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,170,255,0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+        .learn-more-btn:hover {
+            background: #0077b6;
+            box-shadow: 0 4px 16px rgba(0,170,255,0.18);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <!-- Water Droplets -->
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Centered Brand Row -->
+    <div class="header-center-row" style="background: #0a2342; padding: 16px 0 8px 0; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+    <!-- Blue Navbar Section -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-section" style="padding: 60px 0 30px 0; background: #f7fafd;">
+      <div class="container">
+        <div class="card careers-intro-card contact-card animate-fade-up careers-intro-wide" style="margin: 0 auto 38px auto; min-width: 340px;">
+          <h1 class="section-heading-custom" style="color:#009fe3; font-size:2.2rem; margin-bottom: 10px;">Build Your Future with Us</h1>
+          <div style="font-size:1.13rem; color:#0a2342; font-weight:600; margin-bottom: 18px;">Join a dynamic team committed to innovation, quality, and service excellence in the cleaning automation industry.</div>
+          <p style="color:#333; font-size:1.08rem; margin-bottom: 18px;">At VARADOM, we design, install, and support cutting-edge cleaning machine solutions for industries across the country. Our team is made up of innovators, technicians, sales professionals, and support staff—all working together to raise the standard of automated cleaning. We're looking for passionate individuals who are ready to grow with us.</p>
+          <ul class="careers-bullets" style="color:#0a2342; font-size:1.08rem; margin-left: 0; margin-bottom: 0; list-style: disc inside; text-align:left;">
+            <li style="margin-bottom:8px;">🛠️ Hands-on experience with advanced tech and equipment</li>
+            <li style="margin-bottom:8px;">📈 Opportunities for training and career advancement</li>
+            <li style="margin-bottom:8px;">🤝 Supportive, inclusive team culture</li>
+            <li style="margin-bottom:8px;">💡 Encourage creativity, learning, and problem-solving</li>
+            <li style="margin-bottom:8px;">💼 Work on real-world industrial and automotive projects</li>
+          </ul>
+        </div>
+        <div class="careers-benefits-grid">
+          <div class="card contact-card animate-fade-up careers-benefit-card">
+            <span style="font-size:2.5rem; margin-bottom: 12px;">🧪</span>
+            <h3 style="color:#0a2342; font-size:1.13rem; font-weight:700; text-align:center; margin-bottom: 18px; letter-spacing: 1px;">INNOVATIVE TECHNOLOGY</h3>
+            <button class="learn-more-btn" data-modal="modal-1">Learn More</button>
+          </div>
+          <div class="card contact-card animate-fade-up careers-benefit-card">
+            <span style="font-size:2.5rem; margin-bottom: 12px;">💼</span>
+            <h3 style="color:#0a2342; font-size:1.13rem; font-weight:700; text-align:center; margin-bottom: 18px; letter-spacing: 1px;">COMPENSATION & CAREER GROWTH</h3>
+            <button class="learn-more-btn" data-modal="modal-2">Learn More</button>
+          </div>
+          <div class="card contact-card animate-fade-up careers-benefit-card">
+            <span style="font-size:2.5rem; margin-bottom: 12px;">🎯</span>
+            <h3 style="color:#0a2342; font-size:1.13rem; font-weight:700; text-align:center; margin-bottom: 18px; letter-spacing: 1px;">PERFORMANCE-BASED REWARDS</h3>
+            <button class="learn-more-btn" data-modal="modal-3">Learn More</button>
+          </div>
+          <div class="card contact-card animate-fade-up careers-benefit-card">
+            <span style="font-size:2.5rem; margin-bottom: 12px;">🏥</span>
+            <h3 style="color:#0a2342; font-size:1.13rem; font-weight:700; text-align:center; margin-bottom: 18px; letter-spacing: 1px;">MEDICAL & INSURANCE BENEFITS</h3>
+            <button class="learn-more-btn" data-modal="modal-4">Learn More</button>
+          </div>
+          <div class="card contact-card animate-fade-up careers-benefit-card last-row-center">
+            <span style="font-size:2.5rem; margin-bottom: 12px;">🌟</span>
+            <h3 style="color:#0a2342; font-size:1.13rem; font-weight:700; text-align:center; margin-bottom: 18px; letter-spacing: 1px;">EMPLOYEE BENEFITS</h3>
+            <button class="learn-more-btn" data-modal="modal-5">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Job Fields Section -->
+    <section class="careers-section" style="padding: 30px 0 30px 0; background: #f0f8ff;">
+      <div class="container">
+        <div class="card job-fields-card animate-fade-up" style="margin: 0 auto 38px auto; max-width: 1100px;">
+          <h1 class="job-fields-heading" style="color:#0a2342; font-size:2.2rem; margin-bottom: 18px; text-align:center; text-transform:uppercase; letter-spacing:2px;">Job Fields For Which We Hire</h1>
+          <div class="job-fields-grid">
+            <div class="job-field-box" style="--icon-bg:#e3f2fd;"><span class="job-field-icon"><i class="fas fa-industry"></i></span><span class="job-field-label">Production / Manufacturing</span></div>
+            <div class="job-field-box" style="--icon-bg:#fce4ec;"><span class="job-field-icon"><i class="fas fa-drafting-compass"></i></span><span class="job-field-label">Design & Engineering</span></div>
+            <div class="job-field-box" style="--icon-bg:#e8f5e9;"><span class="job-field-icon"><i class="fas fa-check-circle"></i></span><span class="job-field-label">Quality Control / QA</span></div>
+            <div class="job-field-box" style="--icon-bg:#fff3e0;"><span class="job-field-icon"><i class="fas fa-project-diagram"></i></span><span class="job-field-label">Projects / Planning</span></div>
+            <div class="job-field-box" style="--icon-bg:#ede7f6;"><span class="job-field-icon"><i class="fas fa-warehouse"></i></span><span class="job-field-label">Stores & Inventory</span></div>
+            <div class="job-field-box" style="--icon-bg:#f3e5f5;"><span class="job-field-icon"><i class="fas fa-shopping-cart"></i></span><span class="job-field-label">Purchase / Procurement</span></div>
+            <div class="job-field-box" style="--icon-bg:#e0f2f1;"><span class="job-field-icon"><i class="fas fa-tools"></i></span><span class="job-field-label">Maintenance / Utility</span></div>
+            <div class="job-field-box" style="--icon-bg:#fffde7;"><span class="job-field-icon"><i class="fas fa-bullhorn"></i></span><span class="job-field-label">Sales & Marketing</span></div>
+            <div class="job-field-box" style="--icon-bg:#fbe9e7;"><span class="job-field-icon"><i class="fas fa-headset"></i></span><span class="job-field-label">Customer Support / Service</span></div>
+            <div class="job-field-box" style="--icon-bg:#e1f5fe;"><span class="job-field-icon"><i class="fas fa-rupee-sign"></i></span><span class="job-field-label">Finance & Accounts</span></div>
+            <div class="job-field-box" style="--icon-bg:#f9fbe7;"><span class="job-field-icon"><i class="fas fa-user-tie"></i></span><span class="job-field-label">HR & Administration</span></div>
+            <div class="job-field-box" style="--icon-bg:#ede7f6;"><span class="job-field-icon"><i class="fas fa-laptop-code"></i></span><span class="job-field-label">IT / ERP / Systems</span></div>
+          </div>
+          <div class="job-fields-endline" style="margin-top: 32px; text-align:center; font-size:2.25rem; color:#009fe3; font-weight:700; letter-spacing:1px;">
+            Contact us now to build your future with us
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <!-- Footer -->
+   <footer class="main-footer">
+    <div class="footer-container four-cols single-row-footer">
+        <div class="footer-col logo-col">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="footer-logo" style="width:120px; margin-bottom:18px;">
+        </div>
+        <div class="footer-col">
+            <h3>OUR COMPANY</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>PRODUCTS</h3>
+            <ul>
+                <li>Automatic Vehicle Wash System</li>
+                <li>Cleaning Automation for Railway</li>
+                <li>Component Cleaning System</li>
+                <li>Industrial Requirements</li>
+                <li>High Pressure Wash System</li>
+                <li>Hospitality Cleaning System</li>
+                <li>Add-Ons</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>GET IN TOUCH</h3>
+            <p>Varadom Technologies Pvt Ltd<br>Gat No 1403 Late Kashinath industrial Estate,<br>Sonawane Wasti road, Chikali, Pune-411062</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@varadom.com">info@varadom.com</a></p>
+            <p><i class="fas fa-phone"></i> <a href="tel:+918669663583">+91 8669663583 / 86</a></p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/1BizA1HPNV/" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/varadomtechnologies/" class="text-white"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/varadom_technologies_pvt_ltd?igsh=bTE5cTM5MmxyejR2" class="text-white"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@Varadom_Technologies_Pvt_Ltd" class="text-white"><i class="fab fa-youtube"></i></a>
+            </div>
+            <a href="#" class="footer-brochure-btn">Download Brochure</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Varadom Technologies Pvt Ltd. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.learn-more-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const modal = document.getElementById(this.getAttribute('data-modal'));
+          if (modal) modal.style.display = 'flex';
+        });
+      });
+      document.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', function() {
+          this.closest('.modal-popup').style.display = 'none';
+        });
+      });
+      window.addEventListener('click', function(e) {
+        document.querySelectorAll('.modal-popup').forEach(modal => {
+          if (e.target === modal) modal.style.display = 'none';
+        });
+      });
+    });
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+    }
+    </script>
+    <!-- Add modals for each benefit card -->
+    <div id="modal-1" class="modal-popup" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"><span style="font-size:2rem;margin-right:10px;">🧪</span>Innovative Technology</h3>
+        <ul>
+          <li>Work on real-world automation systems</li>
+          <li>Hands-on experience with robotics, sensors, and control systems</li>
+          <li>Collaborate with engineers, designers, and product specialists</li>
+          <li>Contribute to R&D, testing, and product upgrades</li>
+          <li>Be part of a team shaping the future of industrial and automotive hygiene</li>
+        </ul>
+      </div>
+    </div>
+    <div id="modal-2" class="modal-popup" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"><span style="font-size:2rem;margin-right:10px;">💼</span>Compensation & Career Growth</h3>
+        <ul>
+          <li>Fair, transparent salary structures</li>
+          <li>Annual performance and salary reviews</li>
+          <li>Incentives for certifications and skill upgrades</li>
+          <li>Defined career paths for technicians, engineers, and sales professionals</li>
+          <li>Your growth is directly tied to your ambition and contribution</li>
+        </ul>
+      </div>
+    </div>
+    <div id="modal-3" class="modal-popup" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"><span style="font-size:2rem;margin-right:10px;">🎯</span>Performance-Based Rewards</h3>
+        <ul>
+          <li>Monthly and quarterly performance bonuses</li>
+          <li>Spot awards for project excellence</li>
+          <li>Team success celebrations and recognition events</li>
+          <li>"Employee of the Month" honors with cash prizes or gifts</li>
+          <li>We don't just say thank you — we show it</li>
+        </ul>
+      </div>
+    </div>
+    <div id="modal-4" class="modal-popup" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"><span style="font-size:2rem;margin-right:10px;">🏥</span>Medical & Insurance Benefits</h3>
+        <ul>
+          <li>Health insurance for employees and dependents</li>
+          <li>Accidental and on-duty injury coverage</li>
+          <li>Emergency medical reimbursement support</li>
+          <li>Optional add-ons for extended family at subsidized rates</li>
+          <li>Your health and safety are as important to us as your performance</li>
+        </ul>
+      </div>
+    </div>
+    <div id="modal-5" class="modal-popup" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="display:flex;align-items:center;font-size:1.4rem;margin-bottom:18px;"><span style="font-size:2rem;margin-right:10px;">🌟</span>Employee Benefits</h3>
+        <ul>
+          <li>Travel allowance or fuel reimbursement for field staff</li>
+          <li>Company-branded gear and safety equipment</li>
+          <li>On-the-job training with certification opportunities</li>
+          <li>Team offsites, events, and festival bonuses</li>
+          <li>Access to technical webinars and industry expos</li>
+          <li>We invest in you so you can bring your best to the team and our clients</li>
+        </ul>
+      </div>
+    </div>
+</body>
+</html> 

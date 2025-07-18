@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Varadom Technologies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubble.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add fonts for company name -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Airelon:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Header and Navigation Styles */
+        .header-center-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: #0a2342;
+            padding: 16px 0 8px 0;
+            min-height: 120px;
+        }
+        
+        /* Logo Circle Styles */
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .company-name .varadom {
+            font-family: 'Airelon', 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .technologies {
+            font-family: 'Airelon', 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 6px;
+            opacity: 0.95;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .company-name .varadom:hover,
+        .company-name .technologies:hover {
+            transform: scale(1.08);
+            text-shadow: 0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.5);
+        }
+
+        /* Main Navigation Styles */
+        .main-nav.ats-style {
+            background: #009fe3;
+            padding: 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .nav-links li a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 18px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        .nav-links li a.active {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8), 
+                         0 0 25px rgba(255,255,255,0.6),
+                         0 0 35px rgba(255,255,255,0.4);
+            border-bottom: 3px solid #ffffff;
+        }
+
+        /* Container adjustments */
+        .main-nav.ats-style .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a2aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .about-content {
+            padding: 20px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-story-card {
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            padding: 40px 32px;
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+        }
+        .about-story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 40px 32px;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+        }
+        .about-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        .vision-mission-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .vision-mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .vision-mission-card {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .vision-mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .visionaries-section {
+            padding: 40px 0;
+        }
+
+        .visionaries-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .visionary-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .visionary-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .visionary-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .visionary-info {
+            padding: 30px;
+        }
+
+        .values-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background-color: #fff;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .manufacturing-section {
+            padding: 40px 0;
+        }
+
+        .manufacturing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .manufacturing-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .manufacturing-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .manufacturing-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .certifications-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .certification-card {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Apply card style to all cards */
+        .vision-mission-card,
+        .visionary-card,
+        .value-card,
+        .manufacturing-card,
+        .certification-card {
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+            background: #fff;
+        }
+        
+        .vision-mission-card:hover,
+        .visionary-card:hover,
+        .value-card:hover,
+        .manufacturing-card:hover,
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        .card {
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+        .visionaries-grid .visionary-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 32px;
+        }
+        .visionary-photo-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #007bff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            margin-bottom: 24px;
+            background: #f4f8fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .visionary-photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .header-center-row {
+                padding: 24px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+                margin-right: 16px;
+            }
+
+            .logo-circle img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-story-card, .about-image img {
+                max-width: 100%;
+                padding: 24px 10px;
+               
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-center-row {
+                padding: 20px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 65px;
+                height: 65px;
+                margin-right: 12px;
+            }
+
+            .logo-circle img {
+                width: 55px;
+                height: 55px;
+            }
+
+            .company-name .varadom {
+                font-size: 2rem;
+            }
+            .company-name .technologies {
+                font-size: 1rem;
+            }
+        }
+
+        .manufacturing-card-custom {
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1), border-color 0.3s;
+            background: #fff;
+        }
+        .manufacturing-card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-color: #0a2342;
+        }
+
+        @media (max-width: 700px) {
+            .header-center-row {
+                padding: 24px 0 8px 0;
+            }
+            
+            .logo-circle {
+                width: 70px;
+                height: 70px;
+                margin-right: 16px;
+            }
+
+            .company-name .varadom {
+                font-size: 2.4rem;
+            }
+            .company-name .technologies {
+                font-size: 1.2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-story-card, .about-image img {
+                max-width: 100%;
+                padding: 24px 10px;
+               
+            }
+        }
+        /* Certificates Modal Grid Customization */
+        .certificates-modal .certifications-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 32px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .certificates-modal .certification-card {
+            width: 340px;
+            min-height: 260px;
+            height: auto;
+            background: #fff;
+            border: 2px solid #009fe3;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: visible;
+            position: relative;
+            padding: 18px 12px 28px 12px;
+        }
+        .certificates-modal .certification-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 8px;
+            clip-path: inset(0 0 35% 0); /* Show top 65% of the certificate */
+        }
+        .certificates-modal .certification-card h4 {
+            font-size: 1.05rem;
+            margin: 0 0 8px 0;
+            text-align: center;
+            font-weight: 700;
+            color: #0a2342;
+            white-space: normal;
+            overflow: visible;
+            text-overflow: unset;
+            flex-shrink: 0;
+            min-height: 2.5em;
+            line-height: 1.2;
+        }
+        .certificates-modal .certification-card .view-certificate-btn {
+            font-size: 0.98rem;
+            padding: 8px 20px;
+            border-radius: 8px;
+            background: #009fe3;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: auto;
+            margin-bottom: 8px;
+            width: 90%;
+            align-self: center;
+            display: block;
+            flex-shrink: 0;
+        }
+        @media (max-width: 1200px) {
+            .certificates-modal .certifications-grid {
+                max-width: 100%;
+                gap: 24px 16px;
+            }
+            .certificates-modal .certification-card {
+                width: 260px;
+                height: 160px;
+                padding-bottom: 18px;
+            }
+            .certificates-modal .certification-card img {
+                height: 120px;
+            }
+            .certificates-modal .certification-card h4 {
+                font-size: 0.92rem;
+            }
+            .certificates-modal .certification-card .view-certificate-btn {
+                font-size: 0.88rem;
+                padding: 6px 12px;
+                margin-bottom: 6px;
+            }
+        }
+        @media (max-width: 900px) {
+            .certificates-modal .certification-card {
+                width: 180px;
+                height: 120px;
+                padding-bottom: 10px;
+            }
+            .certificates-modal .certification-card img {
+                height: 90px;
+            }
+            .certificates-modal .certification-card h4 {
+                font-size: 0.8rem;
+            }
+            .certificates-modal .certification-card .view-certificate-btn {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+                margin-bottom: 4px;
+            }
+        }
+        @media (max-width: 700px) {
+            .certificates-modal .certifications-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .vision-mission-card h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .vision-mission-card:hover h3 {
+            color: #009fe3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animation Container -->
+    <div class="bubble-container">
+        <!-- Water Droplets -->
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        <div class="water-droplet"></div>
+        
+        <!-- Bubbles -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Header Centered Brand Row -->
+    <div class="header-center-row" style="background: #0a2342; padding: 16px 0 8px 0; min-height: 120px; display: flex; align-items: center; justify-content: center;">
+        <div class="logo-circle">
+            <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="main-logo">
+        </div>
+        <div class="company-name">
+            <span class="varadom">VARADOM</span>
+            <span class="technologies">TECHNOLOGIES</span>
+        </div>
+    </div>
+
+    <!-- Blue Navbar Section -->
+    <nav class="main-nav ats-style">
+        <div class="container nav-center">
+            <button class="mobile-menu-btn" aria-label="Open Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">Company</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="enquiry.html">Enquiry</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="navbar-dropdown-space"></div>
+<!-- About Content Section -->
+    <section class="about-content">
+        <div class="container">
+            <h1 class="section-heading-custom">ABOUT US</h1>
+            <div class="about-grid">
+                <div class="about-story-card card about-text">
+                    <h2 style="text-align: center; margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; font-size: 2.5rem;">Our Story</h2>
+                    <p>We, Varadom Technologies Private Limited from 2016 has developed into a trustful entity and pioneered the industry by manufacturing optimum quality Automatic vehicle washing System. We offer products range from Automatic Bike Wash System, Automatic Car Washing System, Automatic bus and truck wash system, Automatic train bogie and coach wash system. Semi-Automatic Car and Bike Washing Machine, Smart ETP Plant For Car Washing System, Vacuum Cleaner and all accessories for vehicle wash industry.</p>
+                    <p>Our products are well known in market for their high quality, durable, low maintenance, Easy to service and operate. We have established a sound infrastructure with state-of-the-art facility. We are ISO 9001:2015 certified company. We do have state of the art machinery for fabrication and manufacturing.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Varadom  Company Page.jpeg" alt="About Varadom Technologies" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision and Mission Section -->
+    <section class="vision-mission-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; font-size: 2.5rem;">Vision and Mission</h2>
+            <div class="vision-mission-grid">
+                <div class="vision-mission-card">
+                    <h3><i class="fas fa-eye"></i> Vision</h3>
+                    <p>To be a global leader in automated cleaning solutions, driving innovation and sustainability in the vehicle and industrial cleaning industries. By FY 2025, we aim to become the most aspirational Indian clean tech brand, consistently winning by:</p>
+                    <ul>
+                        <li>Delivering superior financial returns</li>
+                        <li>Driving sustainable cleaning solutions</li>
+                        <li>Exceeding customer expectations</li>
+                        <li>Creating a highly engaged workforce</li>
+                    </ul>
+                </div>
+                <div class="vision-mission-card">
+                    <h3><i class="fas fa-bullseye"></i> Mission</h3>
+                    <p>Our mission is to design and manufacture advanced, eco-conscious cleaning systems that meet the diverse needs of our customers. We innovate cleaning solutions with passion to enhance the quality of life, constantly pushing the boundaries of technology, where our innovations are recognized with patents.</p>
+                    <p>We are committed to delivering innovative, reliable, and high-performance solutions, backed by exceptional customer service and continuous improvement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visionaries Section -->
+    <section class="visionaries-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; font-size: 2.5rem;">Our Visionaries</h2>
+            <div class="visionaries-grid">
+                <div class="visionary-card card">
+                    <div class="visionary-photo-circle">
+                        <img src="owner1.webp" alt="Nilesh Bakshe">
+                    </div>
+                    <div class="visionary-info">
+                        <h3>Nilesh Bakshe</h3>
+                        <p>Nilesh is a passionate biker and trekker. These apt hobbies helped Nilesh launch Vardom Technologies, a perfect blend of his hobbies and expertise. As a passionate mechanical engineer, Nilesh has more than 15 years of professional experience in Multi-National Automotive companies. He has worked across various areas, including Product Design & Development, Engineering Services, Project management, and Technical Sales & Marketing. Nilesh specializes in SMP design and development. Having set up new business verticals and playing a significant role in business development, Nilesh was natural to conceptualize a start-up connected with the automobile industry.</p>
+                    </div>
+                </div>
+                <div class="visionary-card card">
+                    <div class="visionary-photo-circle">
+                        <img src="owner2.webp" alt="Sandeep Girhe">
+                    </div>
+                    <div class="visionary-info">
+                        <h3>Sandeep Girhe</h3>
+                        <p>As a mechanical engineer, Sandip has more than 15 years of rich experience in Production, Purchase, vendor development, procurement, cost management, and supply chain management. He is an expert in negotiation, procurement, and quality management. This techno-managerial experience gives insight while realizing the customized designs and requirements into perfect products. His urge for quality and efficiency at all levels is incomparable. His insight into procuring quality components and ensuring timely delivery results from his in-depth exposure in the purchase function while working with an MNC.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Varadom Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-heading-custom" style="text-align: center; margin-bottom: 40px;">Why Choose Varadom</h2>
+            <div class="why-varadom-grid">
+                <div class="why-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Quality Excellence</h3>
+                    <div class="why-popup">
+                        <p>The quality of the product is highly maintained with ISO 9001:2015 certification ensuring consistent standards.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-smile"></i>
+                    <h3>Customer Delight</h3>
+                    <div class="why-popup">
+                        <p>We empower work and celebrate work with dedicated 24/7 support and personalized solutions.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Honesty & Dedication</h3>
+                    <div class="why-popup">
+                        <p>Honesty and dedication to client's needs with transparent communication and ethical practices.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Fairness & Respect</h3>
+                    <div class="why-popup">
+                        <p>Fairness and respect to all clients with transparent pricing and equal treatment.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <div class="why-popup">
+                        <p>Innovation and breakthrough results with patented technology and cutting-edge solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Capabilities Section -->
+    <section class="manufacturing-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto;">Manufacturing Capabilities</h2>
+            <div class="about-card manufacturing-card-custom">
+                <p style="font-size:1.08rem; color:#333; line-height:1.7;">
+                    At <b>Varadom Technologies</b>, we are proud to have a large team of expert engineers who drive our success across all areas, including production, technical support, quality control, and service. Our highly skilled professionals ensure that every product meets stringent quality standards, from the initial manufacturing stages to final delivery. With dedicated teams handling each aspect, we guarantee efficient production processes, thorough quality checks, and reliable after-sales service, providing our clients with the best solutions and ongoing support.
+                </p>
+                <ul style="font-size:1.08rem; color:#333; margin-left: 24px;">
+                    <li>Production Line Photos</li>
+                    <li>Welding</li>
+                    <li>Assembly line</li>
+                    <li>QC Area</li>
+                    <li>Production Head and Design Engineer Discussion Photo with Team</li>
+                    <li>Trial Area</li>
+                    <li>Complete Factory Photo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-heading-custom" style="text-align: center; margin-bottom: 40px;">Our Certificates & Achievements</h2>
+            <div class="certificates-main-card" onclick="openCertificatesModal()">
+                <div class="certificates-card-content">
+                    <i class="fas fa-certificate" style="font-size: 4rem; color: #009fe3; margin-bottom: 20px;"></i>
+                    <h3>Certificates & Achievements</h3>
+                    <p>Explore our comprehensive collection of certificates and achievements that demonstrate our commitment to quality, innovation, and excellence.</p>
+                    <button class="explore-certificates-btn">Explore Certificates</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Modal (Popup with all certificate cards) -->
+    <div id="certificatesModal" class="certificates-modal" style="display:none;">
+        <div class="certificates-modal-content">
+            <div class="certificates-modal-header">
+                <h2>Our Certificates & Achievements</h2>
+                <span class="certificates-modal-close" onclick="closeCertificatesModal()">&times;</span>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <img src="certificates/Certificate Of Incorporation.png" alt="Certificate of Incorporation">
+                    <h4>Certificate of Incorporation</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('inc')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/ZED Certification.png" alt="MSME ZED Certification">
+                    <h4>MSME ZED Certification</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('zed')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/ACWP BANK Certificate.png" alt="Bank Certificate">
+                    <h4>Bank Certificate</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('bank')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/Shop Act Certification.png" alt="Shop Act Certificate">
+                    <h4>Shop Act Certificate</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('shopact')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/ISO Certificate.png" alt="ISO 9001:2015">
+                    <h4>ISO 9001:2015</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('iso')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/Screenshot 2025-07-07 at 11.59.47 PM.png" alt="GST Certificate 3">
+                    <h4>GST Certificate</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('gst')">View Certificate</button>
+                </div>
+                <div class="certification-card">
+                    <img src="certificates/Screenshot 2025-07-08 at 12.21.52 AM.png" alt="Udyam Registration 1">
+                    <h4>Udyam Registration Certificate</h4>
+                    <button class="view-certificate-btn" onclick="viewCertificate('udyam')">View Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Individual Certificate Modal -->
+    <div id="certificateViewModal" class="certificate-view-modal" style="display:none;">
+        <div class="certificate-view-content">
+            <div class="certificate-view-header">
+                <h3 id="certificateTitle">Certificate Title</h3>
+                <span class="certificate-view-close" onclick="closeCertificateView()">&times;</span>
+            </div>
+            <div class="certificate-view-body" id="certificateModalBody">
+                <!-- Images will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container four-cols single-row-footer">
+            <div class="footer-col logo-col">
+                <img src="Logo.jpeg" alt="Varadom Technologies Logo" class="footer-logo" style="width:120px; margin-bottom:18px;">
+            </div>
+            <div class="footer-col">
+                <h3>OUR COMPANY</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Company</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="enquiry.html">Enquiry</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>PRODUCTS</h3>
+                <ul>
+                    <li>Automatic Vehicle Wash System</li>
+                    <li>Cleaning Automation for Railway</li>
+                    <li>Component Cleaning System</li>
+                    <li>Industrial Requirements</li>
+                    <li>High Pressure Wash System</li>
+                    <li>Hospitality Cleaning System</li>
+                    <li>Add-Ons</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>GET IN TOUCH</h3>
+                <p>Varadom Technologies Pvt Ltd<br>Gat No 1403 Late Kashinath industrial Estate,<br>Sonawane Wasti road, Chikali, Pune-411062</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@varadom.com">info@varadom.com</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+918669663583">+91 8669663583 / 86</a></p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1BizA1HPNV/" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/varadomtechnologies/" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/varadom_technologies_pvt_ltd?igsh=bTE5cTM5MmxyejR2" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@Varadom_Technologies_Pvt_Ltd" class="text-white"><i class="fab fa-youtube"></i></a>
+                </div>
+                <a href="#" class="footer-brochure-btn">Download Brochure</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Varadom Technologies Pvt Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Certificates Modal JavaScript -->
+    <script>
+        // Certificate data for modal
+        const certificates = {
+            'inc': {
+                title: 'Certificate of Incorporation',
+                images: ['certificates/Certificate Of Incorporation.png']
+            },
+            'zed': {
+                title: 'MSME ZED Certification',
+                images: ['certificates/ZED Certification.png']
+            },
+            'bank': {
+                title: 'Bank Certificate',
+                images: ['certificates/ACWP BANK Certificate.png']
+            },
+            'shopact': {
+                title: 'Shop Act Certificate',
+                images: ['certificates/Shop Act Certification.png']
+            },
+            'iso': {
+                title: 'ISO 9001:2015',
+                images: ['certificates/ISO Certificate.png']
+            },
+            'gst': {
+                title: 'GST Certificate',
+                images: [
+                    'certificates/Screenshot 2025-07-07 at 11.59.47 PM.png',
+                    'certificates/Screenshot 2025-07-08 at 12.00.29 AM.png',
+                    'certificates/Screenshot 2025-07-08 at 12.00.37 AM.png'
+                ]
+            },
+            'udyam': {
+                title: 'Udyam Registration Certificate',
+                images: [
+                    'certificates/Screenshot 2025-07-08 at 12.21.52 AM.png',
+                    'certificates/Screenshot 2025-07-08 at 12.22.04 AM.png',
+                    'certificates/Screenshot 2025-07-08 at 12.22.29 AM.png',
+                    'certificates/Screenshot 2025-07-08 at 12.23.34 AM.png'
+                ]
+            }
+        };
+
+        // Open certificates modal
+        function openCertificatesModal() {
+            document.getElementById('certificatesModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close certificates modal
+        function closeCertificatesModal() {
+            document.getElementById('certificatesModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // View individual certificate (updated for multiple images)
+        function viewCertificate(certId) {
+            const cert = certificates[certId];
+            if (cert) {
+                document.getElementById('certificateTitle').textContent = cert.title;
+                let imagesHtml = '';
+                cert.images.forEach(img => {
+                    imagesHtml += `<img src="${img}" alt="${cert.title}" class="certificate-image" style="max-width: 100%; margin-bottom: 12px; object-fit: contain; height: 80vh; clip-path: none;">`;
+                });
+                document.getElementById('certificateModalBody').innerHTML = imagesHtml;
+                document.getElementById('certificateViewModal').style.display = 'flex';
+                document.getElementById('certificatesModal').style.display = 'none';
+            }
+        }
+
+        // Close certificate view modal
+        function closeCertificateView() {
+            document.getElementById('certificateViewModal').style.display = 'none';
+            document.getElementById('certificatesModal').style.display = 'flex';
+        }
+    </script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html> 
